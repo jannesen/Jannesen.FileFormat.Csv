@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Jannesen.FileFormat.Csv.snk" />
-    <None Include="LICENSE" />
+    <None Include="LICENSE.txt" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
