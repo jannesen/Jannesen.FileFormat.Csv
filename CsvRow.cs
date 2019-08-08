@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Jannesen.FileFormat.Csv
 {
     public class CsvRow
     {
-        private             CsvCell[]   _cells;
-
+        private readonly    CsvCell[]   _cells;
 
         public              int         Count
         {
@@ -45,13 +45,13 @@ namespace Jannesen.FileFormat.Csv
 
     public class CsvRows: List<CsvRow>
     {
-        public  new         CsvRow      this[int RowIndex]
+        public  new         CsvRow      this[int rowIndex]
         {
             get {
-                if (RowIndex < 0 || RowIndex >= base.Count)
-                    throw new ArgumentException("row '+(Index.ToString())+' out of range.");
+                if (rowIndex < 0 || rowIndex >= base.Count)
+                    throw new ArgumentOutOfRangeException(nameof(rowIndex), rowIndex.ToString(CultureInfo.InvariantCulture));
 
-                return base[RowIndex];
+                return base[rowIndex];
             }
         }
     }

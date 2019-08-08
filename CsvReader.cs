@@ -7,16 +7,15 @@ namespace Jannesen.FileFormat.Csv
 {
     public class CsvReader: IDisposable
     {
-        private             TextReader          _textReader;
-        private             CsvOptions          _options;
-        private             int                 _rowIndex;
-        private             StringBuilder       _buf;
-
+        private                     TextReader          _textReader;
+        private readonly            CsvOptions          _options;
+        private readonly            StringBuilder       _buf;
+        private                     int                 _rowIndex;
 
         public                                  CsvReader(TextReader textReader, CsvOptions options)
         {
-            if (textReader == null)
-                throw new ArgumentException("textReader is null.");
+            if (textReader is null) throw new ArgumentNullException(nameof(textReader));
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             _textReader = textReader;
             _options    = options;

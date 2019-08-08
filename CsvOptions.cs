@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Jannesen.FileFormat.Csv
 {
     public class CsvOptions
     {
-        public              Encoding            Encoding;
-        public              char                FieldSeperator;
-        public              char                StringQuote;
-        public              IFormatProvider     DoubleFormatProvider;
-        public              string              DateFormat;
-        public              string              DateTimeFormat;
-        public              IFormatProvider     DateTimeFormatProvider;
+        public              Encoding            Encoding                    { get; set; }
+        public              char                FieldSeperator              { get; set; }
+        public              char                StringQuote                 { get; set; }
+        public              IFormatProvider     DoubleFormatProvider        { get; set; }
+        public              string              DateFormat                  { get; set; }
+        public              string              DateTimeFormat              { get; set; }
+        public              IFormatProvider     DateTimeFormatProvider      { get; set; }
 
         public                                  CsvOptions()
         {
@@ -23,7 +24,7 @@ namespace Jannesen.FileFormat.Csv
             get {
                 CsvOptions  Options = new CsvOptions();
 
-                System.Globalization.CultureInfo    CultureInfo = System.Globalization.CultureInfo.InvariantCulture;
+                System.Globalization.CultureInfo    CultureInfo = CultureInfo.InvariantCulture;
 
                 Options.Encoding               = Encoding.ASCII;
                 Options.FieldSeperator         = ',';
@@ -57,7 +58,7 @@ namespace Jannesen.FileFormat.Csv
 
         public  virtual     int                 ParseInt(string Value)
         {
-            return int.Parse(Value);
+            return int.Parse(Value, System.Globalization.NumberStyles.Integer, CultureInfo.InvariantCulture);
         }
         public  virtual     double              ParseDouble(string Value)
         {

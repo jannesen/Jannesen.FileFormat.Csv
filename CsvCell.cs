@@ -5,10 +5,10 @@ namespace Jannesen.FileFormat.Csv
 {
     public class CsvCell
     {
-        private             int             _colIndex;
-        private             int             _rowIndex;
-        private             string          _value;
-        private             CsvOptions      _options;
+        private readonly    int             _colIndex;
+        private readonly    int             _rowIndex;
+        private readonly    string          _value;
+        private readonly    CsvOptions      _options;
 
         public              string          ValueString
         {
