@@ -22,43 +22,39 @@ namespace Jannesen.FileFormat.Csv
         public  static      CsvOptions          US
         {
             get {
-                CsvOptions  Options = new CsvOptions();
+                var    cultureInfo = CultureInfo.InvariantCulture;
 
-                System.Globalization.CultureInfo    CultureInfo = CultureInfo.InvariantCulture;
-
-                Options.Encoding               = Encoding.ASCII;
-                Options.FieldSeperator         = ',';
-                Options.StringQuote            = '\"';
-                Options.DoubleFormatProvider   = CultureInfo.NumberFormat;
-                Options.DateFormat             = "yyyy-M-d";
-                Options.DateTimeFormat         = "yyyy-M-d H:mm:ss";
-                Options.DateTimeFormatProvider = CultureInfo.DateTimeFormat;
-
-                return Options;
+                return new CsvOptions() {
+                           Encoding               = Encoding.ASCII,
+                           FieldSeperator         = ',',
+                           StringQuote            = '\"',
+                           DoubleFormatProvider   = cultureInfo.NumberFormat,
+                           DateFormat             = "yyyy-M-d",
+                           DateTimeFormat         = "yyyy-M-d H:mm:ss",
+                           DateTimeFormatProvider = cultureInfo.DateTimeFormat
+                       };
             }
         }
         public  static      CsvOptions          NL
         {
             get {
-                CsvOptions                          Options = new CsvOptions();
+                var    CultureInfo = System.Globalization.CultureInfo.GetCultureInfo("nl-NL");
 
-                System.Globalization.CultureInfo    CultureInfo = System.Globalization.CultureInfo.GetCultureInfo("nl-NL");
-
-                Options.Encoding               = Encoding.ASCII;
-                Options.FieldSeperator         = ';';
-                Options.StringQuote            = '\"';
-                Options.DoubleFormatProvider   = CultureInfo.NumberFormat;
-                Options.DateFormat             = "d-M-yyyy";
-                Options.DateTimeFormat         = "d-M-yyyy H:mm:ss";
-                Options.DateTimeFormatProvider = CultureInfo.DateTimeFormat;
-
-                return Options;
+                return new CsvOptions() {
+                           Encoding               = Encoding.ASCII,
+                           FieldSeperator         = ';',
+                           StringQuote            = '\"',
+                           DoubleFormatProvider   = CultureInfo.NumberFormat,
+                           DateFormat             = "d-M-yyyy",
+                           DateTimeFormat         = "d-M-yyyy H:mm:ss",
+                           DateTimeFormatProvider = CultureInfo.DateTimeFormat
+                       };
             }
         }
 
         public  virtual     int                 ParseInt(string Value)
         {
-            return int.Parse(Value, System.Globalization.NumberStyles.Integer, CultureInfo.InvariantCulture);
+            return int.Parse(Value, NumberStyles.Integer, CultureInfo.InvariantCulture);
         }
         public  virtual     double              ParseDouble(string Value)
         {
