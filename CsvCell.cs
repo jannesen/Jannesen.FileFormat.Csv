@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Jannesen.FileFormat.Csv
 {
-    public class CsvCell
+    public sealed class CsvCell
     {
         private readonly    int             _colIndex;
         private readonly    int             _rowIndex;

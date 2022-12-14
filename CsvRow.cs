@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Jannesen.FileFormat.Csv
 {
-    public class CsvRow
+    public sealed class CsvRow
     {
         private readonly    CsvCell[]   _cells;
 
