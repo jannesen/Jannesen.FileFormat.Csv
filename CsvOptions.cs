@@ -17,22 +17,19 @@ namespace Jannesen.FileFormat.Csv
 
         public                                  CsvOptions()
         {
+            Encoding               = Encoding.ASCII;
+            FieldSeperator         = ',';
+            StringQuote            = '\"';
+            DoubleFormatProvider   = CultureInfo.InvariantCulture.NumberFormat;
+            DateFormat             = "yyyy-M-d";
+            DateTimeFormat         = "yyyy-M-d H:mm:ss";
+            DateTimeFormatProvider = CultureInfo.InvariantCulture.DateTimeFormat;
         }
 
-        public  static      CsvOptions          US
+        public  static      CsvOptions          Invariant
         {
             get {
-                var    cultureInfo = CultureInfo.InvariantCulture;
-
-                return new CsvOptions() {
-                           Encoding               = Encoding.ASCII,
-                           FieldSeperator         = ',',
-                           StringQuote            = '\"',
-                           DoubleFormatProvider   = cultureInfo.NumberFormat,
-                           DateFormat             = "yyyy-M-d",
-                           DateTimeFormat         = "yyyy-M-d H:mm:ss",
-                           DateTimeFormatProvider = cultureInfo.DateTimeFormat
-                       };
+                return new CsvOptions();
             }
         }
         public  static      CsvOptions          NL

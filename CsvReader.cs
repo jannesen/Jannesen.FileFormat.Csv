@@ -7,15 +7,15 @@ namespace Jannesen.FileFormat.Csv
 {
     public class CsvReader: IDisposable
     {
-        private                     TextReader          _textReader;
+        private                     TextReader?         _textReader;
         private readonly            CsvOptions          _options;
         private readonly            StringBuilder       _buf;
         private                     int                 _rowIndex;
 
         public                                  CsvReader(TextReader textReader, CsvOptions options)
         {
-            if (textReader is null) throw new ArgumentNullException(nameof(textReader));
-            if (options is null) throw new ArgumentNullException(nameof(options));
+            ArgumentNullException.ThrowIfNull(textReader);
+            ArgumentNullException.ThrowIfNull(options);
 
             _textReader = textReader;
             _options    = options;
@@ -40,14 +40,13 @@ namespace Jannesen.FileFormat.Csv
             }
         }
 
-        public              CsvRow              ReadRow()
+        public              CsvRow?             ReadRow()
         {
             int     c;
             int     colIndex = 0;
             var     cells = new List<CsvCell>();
 
-            if (_textReader == null)
-                throw new ObjectDisposedException("CsvReader disposed.");
+            ObjectDisposedException.ThrowIf(_textReader == null, this);
 
             c = _textReader.Read();
             if (c < 0)
