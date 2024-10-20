@@ -1,4 +1,4 @@
-﻿# Jannesen.FileFormat.Csv
+# Jannesen.FileFormat.Csv
 
 Basic CSV reader.
 
