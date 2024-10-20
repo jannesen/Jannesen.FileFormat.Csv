@@ -42,13 +42,12 @@ namespace Jannesen.FileFormat.Csv
 
         public              CsvRow?             ReadRow()
         {
-            int     c;
-            int     colIndex = 0;
+            var     colIndex = 0;
             var     cells = new List<CsvCell>();
 
             ObjectDisposedException.ThrowIf(_textReader == null, this);
 
-            c = _textReader.Read();
+            var c = _textReader.Read();
             if (c < 0)
                 return null;
 

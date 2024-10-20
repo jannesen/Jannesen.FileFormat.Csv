@@ -4,7 +4,7 @@
         <AssemblyName>Jannesen.FileFormat.Csv</AssemblyName>
 
         <OutputType>Library</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net8</TargetFramework>
         <InvariantGlobalization>true</InvariantGlobalization>
         <Platforms>AnyCPU</Platforms>
 
@@ -18,7 +18,7 @@
         <AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
 
         <Company>Jannesen B.V.</Company>
-        <Version>1.11.00.000</Version>
+        <Version>1.12.00.000</Version>
         <Authors>Peter Jannesen</Authors>
         <RepositoryUrl>https://github.com/jannesen/Jannesen.FileFormat.Csv</RepositoryUrl>
     </PropertyGroup>

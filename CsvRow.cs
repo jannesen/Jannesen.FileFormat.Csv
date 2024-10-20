@@ -30,9 +30,9 @@ namespace Jannesen.FileFormat.Csv
 
         public  override    string      ToString()
         {
-            string r = "";
+            var r = "";
 
-            for (int i = 0 ; i < _cells.Length ; ++i) {
+            for (var i = 0 ; i < _cells.Length ; ++i) {
                 if (i>0)
                     r += ",";
 
