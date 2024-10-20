@@ -10,5 +10,3 @@ Basic CSV reader.
 | CsvOptions | How to read then CSV file                                                                 |
 | CsvCell    | Then properties ValueString, ValueInt, ValueDouble, ValueDateTime represent the valueof the cell |
 | CsvRow     | Collection or Cells                                                                       |
-
-
